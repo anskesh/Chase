@@ -204,7 +204,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 99935875}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.7, y: -3.88, z: 0}
+  m_LocalPosition: {x: 0, y: -3.88, z: 0}
   m_LocalScale: {x: 0.1205, y: 0.1205, z: 0.1205}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -228,8 +228,8 @@ MonoBehaviour:
   _groundLayer:
     serializedVersion: 2
     m_Bits: 8
-  GroundCheckRadius: 0.5
-  _jumpForce: 4
+  GroundCheckRadius: 0.1
+  _jumpForce: 250
   _movementSpeed: 4
 --- !u!114 &99935879
 MonoBehaviour:
@@ -314,10 +314,10 @@ RectTransform:
   m_Father: {fileID: 1648253612}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 540, y: -960}
+  m_SizeDelta: {x: 1080, y: 1920}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &121553389
 MonoBehaviour:
@@ -629,6 +629,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420033}
+  - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -718,6 +719,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 99935879}
+--- !u!114 &519420034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90e23558e433f364082af0c4471d9f88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _layer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &785525753
 GameObject:
   m_ObjectHideFlags: 0
@@ -1054,9 +1070,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1634329837}
   - component: {fileID: 1634329838}
+  - component: {fileID: 1634329839}
   m_Layer: 0
   m_Name: ObstacleDisabler
-  m_TagString: Untagged
+  m_TagString: ObstacleDisabler
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1069,7 +1086,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1634329836}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.5, y: 0.51, z: 10}
+  m_LocalPosition: {x: -4.59, y: 0.51, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1086,7 +1103,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1102,6 +1119,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 11.03}
   m_EdgeRadius: 0
+--- !u!50 &1634329839
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1634329836}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1648253608
 GameObject:
   m_ObjectHideFlags: 0
@@ -1263,7 +1301,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 7.93, y: 1}
+  m_Size: {x: 10.27, y: 1}
   m_EdgeRadius: 0
 --- !u!4 &1663092175
 Transform:
@@ -1273,7 +1311,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1663092173}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.03, y: -5.3, z: 10}
+  m_LocalPosition: {x: 0.03, y: -5.286, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1364,7 +1402,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1822052924}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.284, y: -4.85, z: 10}
+  m_LocalPosition: {x: 3.284, y: -4.72, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1385,8 +1423,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _obstaclePlacement: {fileID: 821341296}
   _obstacleTemplate: {fileID: 3701053558180537575, guid: 3e138e1c49e11a24e8f8e134e51149d0, type: 3}
-  _minTimeToRespawn: 1.5
-  _maxTimeToRespawn: 2.5
+  _minTimeToRespawn: 1
+  _maxTimeToRespawn: 2
 --- !u!1 &1867009574
 GameObject:
   m_ObjectHideFlags: 0
@@ -1434,6 +1472,7 @@ MonoBehaviour:
   _player: {fileID: 99935879}
   _healthBar: {fileID: 121553389}
   _windowsSwitcher: {fileID: 1648253613}
+  _camera: {fileID: 519420031}
 --- !u!1 &1999531516
 GameObject:
   m_ObjectHideFlags: 0

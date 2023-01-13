@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -7,6 +6,8 @@ namespace Jungle.Minigames.Chase
     public class Player : MonoBehaviour
     {
         public event UnityAction AppliedDamage;
+        public float Width { get; private set; }
+        
         private PlayerMovement _movement;
         private int _health;
 
@@ -23,20 +24,11 @@ namespace Jungle.Minigames.Chase
         private void Awake()
         {
             _movement = GetComponent<PlayerMovement>();
+            var renderer = GetComponent<SpriteRenderer>();
+            Width = renderer.bounds.size.x;
+            Debug.Log(Width);
         }
 
-        private void Update()
-        {
-            if (Input.GetKey(KeyCode.Space))
-                _movement.Jump();
-            
-            if (Input.touchCount > 0)
-            {
-                Touch touch = Input.GetTouch(0);
-                if (touch.phase == TouchPhase.Began)
-                    _movement.Jump();
-            }
-        }
 
         private void OnTriggerEnter2D(Collider2D col)
         {

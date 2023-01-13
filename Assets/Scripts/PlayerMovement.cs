@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace Jungle.Minigames.Chase
@@ -13,12 +12,12 @@ namespace Jungle.Minigames.Chase
         
         private Rigidbody2D _rb;
         
-        public void Jump()
+        private void Jump()
         {
             if (OnGround())
-                _rb.AddForce(Vector2.up * _jumpForce);
+                _rb.AddForce(transform.up * _jumpForce);
         }
-        
+
         private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
@@ -26,6 +25,9 @@ namespace Jungle.Minigames.Chase
         
         private void Update()
         {
+            if (Input.GetMouseButtonDown(0))
+                Jump();
+
             transform.Translate(Vector2.right * _movementSpeed * Time.deltaTime);
         }
 

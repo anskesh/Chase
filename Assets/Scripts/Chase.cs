@@ -7,6 +7,7 @@ namespace Jungle.Minigames.Chase
         [SerializeField] private Player _player;
         [SerializeField] private HealthBar _healthBar;
         [SerializeField] private WindowsSwitcher _windowsSwitcher;
+        [SerializeField] private Camera _camera;
 
         private void Awake()
         {

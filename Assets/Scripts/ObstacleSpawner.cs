@@ -18,7 +18,7 @@ namespace Jungle.Minigames.Chase
 
         private void Awake()
         {
-            SpawnObstacle();
+            GenerateNewTime();
         }
 
         private void Update()
