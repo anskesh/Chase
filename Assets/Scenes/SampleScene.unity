@@ -230,7 +230,7 @@ MonoBehaviour:
     m_Bits: 8
   GroundCheckRadius: 0.5
   _jumpForce: 4
-  _movementSpeed: 2
+  _movementSpeed: 4
 --- !u!114 &99935879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1069,7 +1069,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1634329836}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.5, y: 0.51, z: 0}
+  m_LocalPosition: {x: -4.5, y: 0.51, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1273,7 +1273,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1663092173}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.03, y: -5.3, z: 0}
+  m_LocalPosition: {x: 0.03, y: -5.3, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1364,7 +1364,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1822052924}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.284, y: -4.85, z: 0}
+  m_LocalPosition: {x: 3.284, y: -4.85, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1385,8 +1385,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _obstaclePlacement: {fileID: 821341296}
   _obstacleTemplate: {fileID: 3701053558180537575, guid: 3e138e1c49e11a24e8f8e134e51149d0, type: 3}
-  _minTimeToRespawn: 3
-  _maxTimeToRespawn: 8
+  _minTimeToRespawn: 1.5
+  _maxTimeToRespawn: 2.5
 --- !u!1 &1867009574
 GameObject:
   m_ObjectHideFlags: 0
