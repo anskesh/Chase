@@ -50,14 +50,14 @@ namespace Jungle.Minigames.Chase
 
         private bool HasFreeObstacleInPool(out Obstacle obstacle)
         {
-            obstacle = _pool.FirstOrDefault(obstacle => obstacle.enabled == false);
-            return _pool.Any(obstacle => obstacle.enabled == false);
+            obstacle = _pool.FirstOrDefault(obstacle => obstacle.gameObject.activeSelf == false);
+            return _pool.Any(obstacle => obstacle.gameObject.activeSelf == false);
         }
 
         private void SetNewPosition(Obstacle obstacle)
         {
             obstacle.transform.position = transform.position;
-            obstacle.enabled = true;
+            obstacle.gameObject.SetActive(true);
         }
 
         private void GenerateNewTime()

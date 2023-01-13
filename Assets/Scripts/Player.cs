@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -37,9 +38,9 @@ namespace Jungle.Minigames.Chase
             }
         }
 
-        private void OnCollisionEnter2D(Collision2D col)
+        private void OnTriggerEnter2D(Collider2D col)
         {
-            if (col.collider.TryGetComponent(out Obstacle obstacle))
+            if (col.TryGetComponent(out Obstacle obstacle))
                 ApplyDamage();
         }
 

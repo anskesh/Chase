@@ -4,10 +4,12 @@ namespace Jungle.Minigames.Chase
 {
     public class Obstacle : MonoBehaviour
     {
+        [SerializeField] private LayerMask _layer;
         private void OnTriggerEnter2D(Collider2D col)
         {
-            if (col.isTrigger)
-                enabled = false;
+            Debug.Log(col.name);
+            if (col.name == "ObstacleDisabler")
+                gameObject.SetActive(false);
         }
     }
 }
