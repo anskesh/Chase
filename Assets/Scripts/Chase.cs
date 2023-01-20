@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace Jungle.Minigames.Chase
@@ -85,6 +84,7 @@ namespace Jungle.Minigames.Chase
         {
             _windowsSwitcher.OpenWindow(Window.Tutorial);
             _backController.ResetBackground();
+            _spawner.DisableAllObstacle();
             _player.transform.position = new Vector2(-1.34f, -3.88f);
             _worker.transform.position = new Vector2(1.16f, -3.88f);
         }

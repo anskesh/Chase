@@ -21,6 +21,12 @@ namespace Jungle.Minigames.Chase
             _currentTime = 0;
             GenerateNewTime();
         }
+
+        public void DisableAllObstacle()
+        {
+            foreach (var obstacle in _pool)
+                obstacle.gameObject.SetActive(false);
+        }
         
         private void Awake()
         {
