@@ -8,7 +8,7 @@ namespace Jungle.Minigames.Chase
 
         private void Update()
         {
-            transform.position = new Vector3(_player.transform.position.x + 0.56f, 0, -10);
+            transform.position = new Vector3(_player.transform.position.x + 1.34f, 0, -10);
         }
     }
 }

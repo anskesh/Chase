@@ -1,35 +1,48 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Jungle.Minigames.Chase
 {
     public class WindowsSwitcher : MonoBehaviour
     {
-        [SerializeField] private CanvasGroup[] _windows;
+        public event UnityAction RetryClicked;
+        public event UnityAction NextClicked;
+            
+        [SerializeField] private UIWindow[] _windows;
+
+        private void Awake()
+        {
+            _windows[(int) Window.Lose].RetryClicked += OnRetryClicked;
+            _windows[(int) Window.Lose].NextClicked += OnNextClicked;
+            _windows[(int) Window.Win].RetryClicked += OnRetryClicked;
+            _windows[(int) Window.Win].NextClicked += OnNextClicked;
+        }
+
+        private void OnRetryClicked()
+        {
+            RetryClicked?.Invoke();
+        }
+
+        private void OnNextClicked()
+        {
+            NextClicked?.Invoke();
+        }
 
         public void OpenWindow(Window window)
         {
-            _windows[(int)window].alpha = 1;
-            _windows[(int)window].interactable = true;
-            _windows[(int)window].blocksRaycasts = true;
-            
+            CloseAllWindows();
+            _windows[(int) window].Open();
         }
 
-        public void CloseAllWindows()
+        private void CloseAllWindows()
         {
             for (int i = 0; i < _windows.Length; i++)
-            {
                 CloseWindow((Window) i);
-            }
         }
         
-        
-        private void CloseWindow(Window window)
+        public void CloseWindow(Window window)
         {
-            _windows[(int)window].alpha = 0;
-            _windows[(int)window].interactable = false;
-            _windows[(int)window].blocksRaycasts = false;
+            _windows[(int) window].Close();
         }
     }
 

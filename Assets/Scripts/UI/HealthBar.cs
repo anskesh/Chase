@@ -19,12 +19,21 @@ namespace Jungle.Minigames.Chase
         private void Awake()
         {
             RenderHearts();
+            _currentHeartsCount = _countOfHearts;
         }
 
         public void AppliedDamage()
         {
             if (_currentHeartsCount > 0)
                 DestroyHeart();
+        }
+
+        public void FillAllHearts()
+        {
+            foreach (var heart in _hearts)
+                heart.FillHeart();
+
+            _currentHeartsCount = _countOfHearts;
         }
 
         private void DestroyHeart()
@@ -34,27 +43,14 @@ namespace Jungle.Minigames.Chase
             
             if (_currentHeartsCount == 0)
                 AllHeartsLost?.Invoke();
-                
         }
 
         private void DestroyAllHearts()
         {
             foreach (var heart in _hearts)
-            {
                 heart.EmptyHeart();
-            }
 
             _currentHeartsCount = 0;
-        }
-
-        private void FillAllHearts()
-        {
-            foreach (var heart in _hearts)
-            {
-                heart.FillHeart();
-            }
-
-            _currentHeartsCount = _countOfHearts;
         }
 
         private void RenderHearts()

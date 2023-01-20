@@ -1,9 +1,12 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Jungle.Minigames.Chase
 {
     public class PlayerMovement : MonoBehaviour
     {
+        public event UnityAction<float> Moved;
+        
         [SerializeField] private Transform _groundPoint;
         [SerializeField] private LayerMask _groundLayer;
         [SerializeField] private float GroundCheckRadius = 0.5f;
@@ -29,6 +32,7 @@ namespace Jungle.Minigames.Chase
                 Jump();
 
             transform.Translate(Vector2.right * _movementSpeed * Time.deltaTime);
+            Moved?.Invoke(transform.position.x);
         }
 
         private bool OnGround()

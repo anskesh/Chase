@@ -16,6 +16,12 @@ namespace Jungle.Minigames.Chase
         private float _nextTimeToSpawn;
         private float _currentTime;
 
+        public void ResetTime()
+        {
+            _currentTime = 0;
+            GenerateNewTime();
+        }
+        
         private void Awake()
         {
             GenerateNewTime();
@@ -31,7 +37,6 @@ namespace Jungle.Minigames.Chase
                 _currentTime = 0;
                 GenerateNewTime();
             }
-                
         }
 
         private void SpawnObstacle()
